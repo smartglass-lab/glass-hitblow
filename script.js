@@ -122,7 +122,7 @@
       if (!AUTO) { stats.clears++; if (isBest) stats[k] = guesses.length; save(); }
       renderGame(true);
       toast('🎉 ' + N + 'ヒット！');
-      setTimeout(function () { winMenu(isBest && !AUTO); }, 1300);
+      setTimeout(function () { winMenu(isBest && !AUTO); }, 1100);
       return;
     }
     pos = 1;
@@ -369,10 +369,10 @@
     if (!k) return;
     var wasSubmit = mode === 'game' && k === 'Enter' && pos === N + 1;
     handleKey(k);
-    setTimeout(autoTick, mode === 'game' && wasSubmit ? 1500 : k === 'Enter' && !wasSubmit ? 700 : 150);
+    setTimeout(autoTick, mode === 'game' && wasSubmit ? 1300 : k === 'Enter' && !wasSubmit ? 600 : 140);
   }
 
   load();
   goTitle();
-  if (AUTO) setTimeout(autoTick, 1600);
+  if (AUTO) setTimeout(autoTick, 1100);
 })();
