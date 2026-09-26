@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=600, height=600, initial-scale=1.0, user-scalable=no">
+  <meta name="description" content="Meta Ray-Ban Display 用の数当て推理ゲーム「ヒット＆ブロー」。かくされた数字を推理して、位置も数字も合えばヒット、数字だけ合えばブロー。のこり候補の数と0〜9の使用状況を自動で表示。D-padとタップだけで遊べる。依存ライブラリなし・オフライン動作。">
+  <meta name="mrbd-web-app-capable" content="yes">
+  <title>グラスヒット＆ブロー — Glass Hit &amp; Blow</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <div id="hud">
+      <span id="hud-left">🎯 グラスヒット＆ブロー</span>
+      <span id="hud-right"></span>
+    </div>
+
+    <!-- タイトル -->
+    <div id="title" class="screen">
+      <div class="panel">
+        <div class="logo"><span class="h">●</span><span class="b">○</span></div>
+        <div class="t-title">ヒット＆ブロー</div>
+        <div class="t-sub" id="title-sub"></div>
+        <div class="menu-list" id="title-list"></div>
+      </div>
+    </div>
+
+    <!-- ゲーム -->
+    <div id="game" class="screen hidden">
+      <div id="history"></div>
+      <div id="info">
+        <span id="cands"></span>
+        <div id="digits"></div>
+      </div>
+      <div id="input"></div>
+      <div id="toast"></div>
+      <div id="hint"></div>
+    </div>
+
+    <!-- メニュー（ゲーム中・クリア後） -->
+    <div id="menu" class="screen hidden">
+      <div class="panel">
+        <div class="t-title small" id="menu-title"></div>
+        <div class="t-sub" id="menu-sub"></div>
+        <div class="menu-list" id="menu-list"></div>
+      </div>
+    </div>
+
+    <!-- つかいかた -->
+    <div id="howto" class="screen hidden">
+      <div class="panel wide">
+        <div class="t-title small">つかいかた</div>
+        <ul class="howto">
+          <li>かくされた<b class="key">重複なしの数字</b>（3けた／4けた）を当てる</li>
+          <li>数字も位置も合う＝<b class="hit">ヒット ●</b>、数字だけ合う＝<b class="blow">ブロー ○</b></li>
+          <li><b class="key">←→</b> でけたを選び、<b class="key">↑↓</b> で数字を変える（使用中の数字はとばす）</li>
+          <li>右はしの<b class="key">「決定」</b>でタップ。左はしの<b class="key">≡</b>でメニュー</li>
+          <li>「のこり候補」と0〜9の色（<b class="hit">かならず入る</b>／<span class="dim">入らない</span>）は自動で計算</li>
+        </ul>
+        <div class="menu-list" id="howto-list"></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
